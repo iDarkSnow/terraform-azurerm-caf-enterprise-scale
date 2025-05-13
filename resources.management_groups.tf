@@ -134,6 +134,9 @@ resource "azurerm_management_group_subscription_association" "enterprise_scale" 
     azurerm_management_group.level_5,
     azurerm_management_group.level_6,
   ]
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "time_sleep" "after_azurerm_management_group" {
